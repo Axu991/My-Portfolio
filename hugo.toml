@@ -5,6 +5,7 @@ theme = 'PaperMod'
 
 canonifyURLs = true
 relativeURLs = false
+publishDir = "docs"
 
 [params]
   theme = "light"
