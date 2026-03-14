@@ -3,26 +3,23 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - main  # 确保这里对应你的默认分支名称
+      - main 
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     env:
-      # 强制启用 Node.js 24，解决 deprecated 警告
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-      # 如果 Action 依然因为版本问题报错，可以将上面这行改为下面这一行：
-      # ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
     
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        # 注意：这里不再添加 submodules: recursive，因为你已经把 PaperMod 手动放入了 themes/ 目录
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
+          extended: true # 关键：PaperMod 需要 Hugo Extended 版本
 
       - name: Build
         run: hugo --minify
@@ -32,3 +29,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          publish_branch: gh-pages # 强制指定分支，防止混乱
