@@ -3,16 +3,21 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - main
+      - main  # 确保这里对应你的默认分支名称
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # 解决你提到的 Node.js 警告
+      # 强制启用 Node.js 24，解决 deprecated 警告
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      # 如果 Action 依然因为版本问题报错，可以将上面这行改为下面这一行：
+      # ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+    
     steps:
-      - uses: actions/checkout@v4
-        # 删掉了 submodules: recursive，因为主题现在是你项目的一部分，不需要额外下载
+      - name: Checkout
+        uses: actions/checkout@v4
+        # 注意：这里不再添加 submodules: recursive，因为你已经把 PaperMod 手动放入了 themes/ 目录
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
