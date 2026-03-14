@@ -3,15 +3,16 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # 解决你提到的 Node.js 警告
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive 
+        # 删掉了 submodules: recursive，因为主题现在是你项目的一部分，不需要额外下载
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
