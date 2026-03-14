@@ -3,12 +3,11 @@ languageCode = 'en-us'
 title = 'Huang Xu | Homepage'
 theme = 'PaperMod'
 
-canonifyURLs = true
 relativeURLs = false
 publishDir = "docs"
 
 [params]
-  theme = "light"
+  defaultTheme = "light"
   ShowReadingTime = true
   ShowShareButtons = true
   ShowBreadCrumbs = true
@@ -37,9 +36,11 @@ publishDir = "docs"
     weight = 3
 
   [[menu.main]]
-    name = "Log"
+    name = "Logs"
     url = "/logs/"
     weight = 4
+
+
 
 [markup]
   [markup.goldmark]
