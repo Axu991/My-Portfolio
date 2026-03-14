@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'Huang Xu | Homepage'
 theme = 'PaperMod'
 
+canonifyURLs = true
+relativeURLs = false
+
 [params]
   theme = "light"
   ShowReadingTime = true
@@ -19,22 +22,22 @@ theme = 'PaperMod'
 
   [[menu.main]]
     name = "About"
-    url = "about/"
+    url = "/about/"
     weight = 1
 
   [[menu.main]]
     name = "Projects"
-    url = "projects/"
+    url = "/projects/"
     weight = 2
 
   [[menu.main]]
     name = "Gallery"
-    url = "gallery/"
+    url = "/gallery/"
     weight = 3
 
   [[menu.main]]
     name = "Log"
-    url = "logs/"
+    url = "/logs/"
     weight = 4
 
 [markup]
