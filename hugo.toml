@@ -1,6 +1,6 @@
 baseURL = 'https://axu991.github.io/'
 languageCode = 'en-us'
-title = 'Huang Xu | Homepage'
+title = 'Xu Huang | Homepage'
 theme = 'PaperMod'
 
 relativeURLs = false
@@ -16,8 +16,8 @@ publishDir = "docs"
 
   [params.profileMode]
     enabled = true
-    title = "Huang Xu"
-    subtitle = "水下机器人 | 仿生机器鱼 | 嵌入式开发"
+    title = "Learn And Live"
+    subtitle = "仿生机器鱼 | 嵌入式开发"
     imageUrl = "" # 这里可以放你的头像链接，放在 static/ 目录下
 
   [[menu.main]]

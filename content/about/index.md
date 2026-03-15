@@ -4,9 +4,9 @@ date = "2026-03-13T17:32:05+08:00"
 draft = false
 +++
 
-Hello! I am **Huang Xu**, a graduate student specializing in **bio-inspired underwater robotics**, **reinforcement learning for motion control**, and **Sim-to-Real transfer**.
+Hello! I am **Xu Huang**, a graduate student specializing in **bio-inspired underwater robotics**, **reinforcement learning for motion control**, and **Sim-to-Real transfer**.
 
-I am passionate about building full-stack robotics systems, spanning from **mechanical design and embedded control** to **intelligent algorithms**, with the goal of enabling robust deployment in real-world environments.
+I am passionate about building full stack robotics systems, spanning from **mechanical design and embedded control** to **intelligent algorithms**, with the goal of enabling robust deployment in real-world environments.
 
 ---
 
