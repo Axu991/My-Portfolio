@@ -13,6 +13,7 @@ publishDir = "docs"
   ShowBreadCrumbs = true
   ShowPostNavLinks = true
   disableFingerprinting = true
+  
 
   [params.profileMode]
     enabled = true
