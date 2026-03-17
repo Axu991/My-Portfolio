@@ -20,6 +20,7 @@ publishDir = "docs"
     title = "Learn And Live"
     subtitle = "仿生机器鱼 | 嵌入式开发"
     imageUrl = "" # 这里可以放你的头像链接，放在 static/ 目录下
+    comments = true
 
   [[menu.main]]
     name = "About"
