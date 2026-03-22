@@ -3,7 +3,7 @@ theme = 'PaperMod'
 relativeURLs = false
 publishDir = "docs"
 
-defaultContentLanguage = "zh"
+defaultContentLanguage = "en"
 enableRobotsTXT = true
 
 [params]
