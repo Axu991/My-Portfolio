@@ -1,50 +1,81 @@
 baseURL = 'https://axu991.github.io/'
-languageCode = 'en-us'
-title = 'Xu Huang | Homepage'
 theme = 'PaperMod'
-
 relativeURLs = false
 publishDir = "docs"
 
+defaultContentLanguage = "zh"
+enableRobotsTXT = true
+
 [params]
-  defaultTheme = "light"
-  ShowReadingTime = true
-  ShowShareButtons = true
-  ShowBreadCrumbs = true
-  ShowPostNavLinks = true
-  disableFingerprinting = true
-  
+    defaultTheme = "light"
+    ShowReadingTime = true
+    ShowShareButtons = true
+    ShowBreadCrumbs = false
+    ShowPostNavLinks = true
+    disableFingerprinting = true
 
-  [params.profileMode]
-    enabled = true
-    title = "Learn And Live"
-    subtitle = "仿生机器鱼 | 嵌入式开发"
-    imageUrl = "" # 这里可以放你的头像链接，放在 static/ 目录下
-    comments = true
+[markup.goldmark.renderer]
+    unsafe = true
 
-  [[menu.main]]
-    name = "About"
-    url = "/about/"
+# ==================== 中文配置 (zh) ====================
+[languages.zh]
+    languageName = "中文"
+    contentDir = "content/zh"
     weight = 1
+    title = "黄旭 | 个人主页"
 
-  [[menu.main]]
-    name = "Projects"
-    url = "/projects/"
+    [[languages.zh.menu.main]]
+        name = "关于"
+        url = "about/"
+        weight = 1
+    [[languages.zh.menu.main]]
+        name = "项目"
+        url = "projects/"
+        weight = 2
+    [[languages.zh.menu.main]]
+        name = "博客"
+        url = "blogs/"
+        weight = 3
+    [[languages.zh.menu.main]]
+        name = "动态"
+        url = "updates/"
+        weight = 4
+
+    # 最后定义 Params (普通 Table 放在后面)
+    [languages.zh.params]
+        [languages.zh.params.profileMode]
+            enabled = true
+            title = "Learn And Live"
+            subtitle = "仿生机器鱼 | 嵌入式开发 | 强化学习"
+            imageUrl = "" 
+
+# ==================== 英文配置 (en) ====================
+[languages.en]
+    languageName = "English"
+    contentDir = "content/en"
     weight = 2
+    title = "Xu Huang | Homepage"
 
-  [[menu.main]]
-    name = "Blogs"
-    url = "/blogs/"
-    weight = 3
+    [[languages.en.menu.main]]
+        name = "About"
+        url = "about/"
+        weight = 1
+    [[languages.en.menu.main]]
+        name = "Projects"
+        url = "projects/"
+        weight = 2
+    [[languages.en.menu.main]]
+        name = "Blogs"
+        url = "blogs/"
+        weight = 3
+    [[languages.en.menu.main]]
+        name = "Updates"
+        url = "updates/"
+        weight = 4
 
-  [[menu.main]]
-    name = "Updates"
-    url = "/updates/"
-    weight = 4
-
-
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+    [languages.en.params]
+        [languages.en.params.profileMode]
+            enabled = true
+            title = "Learn And Live"
+            subtitle = "Biomimetic Robotic Fish | Embedded Development | RL"
+            imageUrl = ""

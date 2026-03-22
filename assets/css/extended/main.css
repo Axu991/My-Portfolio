@@ -3,7 +3,6 @@
    ========================================================================== */
 
 :root {
-    /* 自定义设计变量 - Light Mode */
     --color-primary: #1d1d1f;        /* 标题色 */
     --color-text-main: #242424;     /* 正文色 */
     --color-text-muted: #86868b;    /* 辅助色 */
@@ -12,7 +11,6 @@
     --color-link-hover: #0e5ab6;    /* 悬停琉璃蓝 */
     --color-hover-bg: rgba(53, 114, 176, 0.06);
 
-    /* 映射至 PaperMod 系统变量 */
     --theme: #ffffff;
     --entry: #ffffff;
     --primary: var(--color-primary);
@@ -21,13 +19,10 @@
     --content: var(--color-text-main);
     --code-bg: #f5f5f7;
     --border: var(--color-border);
-    
-    /* 页面宽度限制 */
     --main-width: 820px;
 }
 
 .dark {
-    /* 自定义设计变量 - Dark Mode */
     --color-primary: #f5f5f7;
     --color-text-main: #d2d2d7;
     --color-text-muted: #86868b;
@@ -36,7 +31,6 @@
     --color-link-hover: #a6d1e6;
     --color-hover-bg: rgba(255, 255, 255, 0.05);
 
-    /* 映射至 PaperMod 系统变量 */
     --theme: #1c1c1e;
     --entry: #2c2c2e;
     --primary: var(--color-primary);
@@ -48,62 +42,92 @@
 }
 
 /* ==========================================================================
-   2. 全局交互规范 (去掉下划线)
+   2. 导航栏强效修复 (解决多语言分两层、样式不统一问题)
    ========================================================================== */
 
-/* 强制去掉全站链接下划线 */
-a, 
-.post-content a, 
-.post-content a:hover {
-    text-decoration: none !important;
-    transition: all 0.2s ease;
-}
-
-/* 链接基础色 */
-a {
-    color: var(--color-link);
-}
-
-/* ==========================================================================
-   3. 导航栏 (Header & Nav)
-   ========================================================================== */
-
+/* 强制 Header 内部元素横向排列，禁止换行 */
 .nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     max-width: var(--main-width);
     margin: 0 auto;
+    padding: 10px 0 !important;
 }
 
-/* 网站 Logo/标题加粗 */
+/* 网站 Logo 区域 */
+.logo {
+    display: flex !important;
+    align-items: center !important;
+    margin-right: 20px !important;
+}
+
 .logo a {
     font-weight: 700;
-    font-size: 1.25rem; /* 修正：确保标题有足够辨识度 */
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none !important;
 }
 
-/* 导航菜单链接加粗 */
+/* 菜单容器：强制水平，取消列表样式 */
+#menu {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* 菜单链接样式 */
 #menu a {
-    margin: 0 8px;
-    padding: 4px 10px;
+    margin: 0 4px;
+    padding: 6px 12px;
     border-radius: 6px;
-    font-weight: 600;      /* 导航文字加粗 */
-    letter-spacing: 0.2px; /* 增加字间距 */
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+    color: var(--primary);
+    transition: all 0.2s ease;
+    text-decoration: none !important;
 }
 
 #menu a:hover {
     background: var(--color-hover-bg);
-    color: var(--primary) !important;
+    color: var(--color-link-hover) !important;
+}
+
+/* 语言切换器样式对齐 */
+.language-switch {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+/* 隐藏可能干扰布局的面包屑 */
+.breadcrumbs {
+    display: none !important;
 }
 
 /* ==========================================================================
-   4. 正文排版 (Post Content)
+   3. 全局排版与交互 (About, Blogs, Projects)
    ========================================================================== */
 
+/* 统一链接无下划线 */
+a, .post-content a {
+    text-decoration: none !important;
+}
+
+/* 正文排版 */
 .post-content {
     font-size: 1.05rem;
     line-height: 1.75;
     text-align: justify;
 }
 
-/* 标题修饰 */
 .post-content h2 {
     margin: 2.5rem 0 1rem;
     padding-bottom: 0.5rem;
@@ -111,37 +135,7 @@ a {
     font-weight: 600;
 }
 
-/* 正文链接微交互 (修正：背景不变色，仅文字变色) */
-.post-content a {
-    color: var(--color-link);
-    padding: 0;             /* 去掉边距，保持文字对齐 */
-    background: none;       /* 确保无背景 */
-    transition: color 0.2s ease;
-}
-
-.post-content a:hover {
-    color: var(--color-link-hover); /* 仅改变文字颜色 */
-    background: none !important;    /* 强制去掉背景色 */
-    text-decoration: none;          /* 确保无下划线 */
-}
-
-/* ==========================================================================
-   5. 首页列表 (Entry Style)
-   ========================================================================== */
-
-.entry-header h2 {
-    transition: color 0.3s;
-}
-
-.entry-link:hover .entry-header h2 {
-    color: var(--color-link-hover); /* 首页标题悬停也触发琉璃蓝 */
-}
-
-/* ==========================================================================
-   6. 结构化组件 (About & Update Log)
-   ========================================================================== */
-
-/* About 页面：左标题、右日期 */
+/* About 页面：左标题、右日期 (利用 flex 布局) */
 .post-content p:has(strong + em) {
     display: flex;
     justify-content: space-between;
@@ -156,25 +150,7 @@ a {
     margin-left: 1rem;
 }
 
-/* 更新日志列表 */
-.update-log p {
-    display: flex;
-    padding: 0.6rem;
-    margin: 0.2rem 0;
-    border-radius: 8px;
-}
-
-.update-log p:hover {
-    background: var(--color-hover-bg);
-}
-
-.update-log p strong:first-child {
-    flex-shrink: 0;
-    width: 95px;
-    color: var(--color-link);
-}
-
-/* 项目卡片 */
+/* 项目卡片效果 */
 .project-card {
     border: 1px solid var(--border);
     background: var(--entry);
@@ -190,22 +166,27 @@ a {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-.dark .project-card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
 /* ==========================================================================
-   7. 响应式布局优化
+   4. 响应式布局优化 (适配移动端)
    ========================================================================== */
 
 @media (max-width: 768px) {
-    .main {
-        padding: 0 15px;
+    .nav {
+        flex-direction: column !important; /* 手机端允许换行 */
+        align-items: flex-start !important;
+    }
+    
+    #menu {
+        margin-top: 10px !important;
+        flex-wrap: wrap !important;
     }
 
-    /* 移动端 About 页面改为纵向堆叠 */
-    .post-content p:has(strong + em),
-    .update-log p {
+    #menu a {
+        margin: 5px 5px 5px 0;
+        padding: 4px 8px;
+    }
+
+    .post-content p:has(strong + em) {
         flex-direction: column;
         align-items: flex-start;
     }
